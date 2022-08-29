@@ -40,16 +40,18 @@ def is_night():
 
 
 # If the ISS is close to my current position
-while is_iss_close():
-    # and it is currently dark
-    if is_night():
-        # Then send me an email to tell me to look up.
-        with smtplib.SMTP(host="smtp.gmail.com", port=587) as connection:
-            connection.starttls()
-            connection.login(user=MY_EMAIL, password=MY_PASSWORD)
-            connection.sendmail(to_addrs="gael.francoise@gmail.com", from_addr=MY_EMAIL,
-                                msg="Subject:Look Up !\n\nISS might be visible overhead!")
-# BONUS: run the code every 60 seconds.
+while True:
     time.sleep(60)
+    if is_iss_close():
+        # and it is currently dark
+        if is_night():
+            # Then send me an email to tell me to look up.
+            with smtplib.SMTP(host="smtp.gmail.com", port=587) as connection:
+                connection.starttls()
+                connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+                connection.sendmail(to_addrs="gael.francoise@gmail.com", from_addr=MY_EMAIL,
+                                    msg="Subject:Look Up !\n\nISS might be visible overhead!")
+# BONUS: run the code every 60 seconds.
+
 
 
