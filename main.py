@@ -7,7 +7,7 @@ MY_LAT = 48.835733 # Your latitude
 MY_LONG = 2.324716 # Your longitude
 
 MY_EMAIL = "jndjrdn12345@gmail.com"
-MY_PASSWORD = "zufuspgkstkkqgwz"
+MY_PASSWORD = ""
 
 response = requests.get(url="http://api.open-notify.org/iss-now.json")
 response.raise_for_status()
